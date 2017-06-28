@@ -1,4 +1,4 @@
-# Command Line Tic-Tac-Toe (README to be addressed)
+# Command Line Tic-Tac-Toe
 
 This project is completed as a submission for the Object Oriented Programming: Tic-Tac-Toe protect in the Ruby Programming curriculum at [The Odin Project](http://theodinproject.com). A full description of the assignment can be found [here](https://www.theodinproject.com/courses/ruby-programming/lessons/oop).
 
