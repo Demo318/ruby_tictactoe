@@ -5,9 +5,6 @@ require_relative 'board.rb'
 class Game
   include EndGame
 
-  @@empty_positions = []
-  @@filled_positions = []
-
   def initialize
     @player1 = Player.new
     @player2 = Player.new
@@ -38,11 +35,9 @@ class Game
   def update_current_player
     case @current_player
     when @player1
-      @current_player = @player2
-      @other_player = @player1
+      @current_player, @other_player = @player2, @player1
     when @player2
-      @current_player = @player1
-      @other_player = @player2
+      @current_player, @other_player = @player1, @player2
     end
   end
 
@@ -62,14 +57,13 @@ class Game
   end
 
   def choose_square
-      chosen_square = get_square
-      @board.empty_positions.delete(chosen_square)
-      @board.filled_positions << chosen_square
-      chosen_square.assignment = @current_player.team
+    chosen_square = get_square
+    @board.empty_positions.delete(chosen_square)
+    @board.filled_positions << chosen_square
+    chosen_square.assignment = @current_player.team
   end
 
   def new_game?
-
     puts "Would you like to start a new game? (y/n)"
     start = gets.chomp
     if "y" == start

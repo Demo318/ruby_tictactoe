@@ -3,9 +3,7 @@ class BoardPosition
   attr_accessor :assignment
 
   @@spaces = 0
-  def initialize (row, column)
-    @row = row
-    @column = column
+  def initialize 
     @assignment = "blank"
     @number = @@spaces + 1
     @@spaces += 1
