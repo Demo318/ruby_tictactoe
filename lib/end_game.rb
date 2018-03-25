@@ -22,10 +22,8 @@ module EndGame
 
     @@winning_ways.length.times do |int|
       ops = get_ops(int)
-      unless ops.include?("blank")
-        if ops[0] == ops[1]&& ops[1] == ops[2]
-          won = true
-        end
+      unless ops.include?('blank')
+        won = true if ops[0] == ops[1] && ops[1] == ops[2]
       end
     end
 
@@ -40,7 +38,7 @@ module EndGame
       blanks = 0
 
       ops.each do |op|
-        blanks += 1 if op == "blank"
+        blanks += 1 if op == 'blank'
       end
       if blanks > 1
         draw = false

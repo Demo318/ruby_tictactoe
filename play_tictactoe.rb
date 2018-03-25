@@ -1,3 +1,3 @@
-require_relative 'game_resources/game.rb'
+require_relative 'lib/game.rb'
 
 Game.new
