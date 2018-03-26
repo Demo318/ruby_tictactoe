@@ -1,9 +1,9 @@
 require_relative 'board_position.rb'
 
 class Board
-  attr_accessor :pos_one_one, :pos_one_two, :pos_one_three,
-                :pos_two_one, :pos_two_two, :pos_two_three,
-                :pos_three_one, :pos_three_two, :pos_three_three,
+  attr_accessor :pos_one, :pos_two, :pos_three,
+                :pos_four, :pos_five, :pos_six,
+                :pos_seven, :pos_eight, :pos_nine,
                 :position_arr, :empty_positions, :filled_positions
 
   def initialize
