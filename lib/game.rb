@@ -3,32 +3,35 @@ require_relative 'player.rb'
 require_relative 'board.rb'
 
 class Game
+  attr_reader :board
   include EndGame
 
   def initialize
+    @board = Board.new
+    @board.draw_board
+  end
+
+  def new_players
     @player1 = Player.new
     @player2 = Player.new
     @current_player = @player1
     @other_player = @player2
-    @board = Board.new
-    @board.draw_board
-    new_turn
   end
 
-  private
   def new_turn
-    choose_square
-    @board.draw_board
-    get_endgame_combinations(@board.position_arr)
-    if victory? == true
-      puts "Congratulations, #{@current_player.name}, you are the victor!"
-      new_game?
-    elsif draw?(@current_player, @other_player) == true
-      puts "This game has ended in a draw."
-      new_game?
-    else
-      update_current_player
-      new_turn
+    loop do
+      choose_square
+      @board.draw_board
+      get_endgame_combinations(@board.position_arr)
+      if victory? == true
+        puts "Congratulations, #{@current_player.name}, you are the victor!"
+        break
+      elsif draw?(@current_player, @other_player) == true
+        puts "This game has ended in a draw."
+        break
+      else
+        update_current_player
+      end
     end
   end
 
@@ -64,14 +67,16 @@ class Game
   end
 
   def new_game?
-    puts "Would you like to start a new game? (y/n)"
-    start = gets.chomp
-    if "y" == start
-      Game.new
-    elsif "n" == start
-      exit
-    else
-      new_game?
+    loop do
+      puts "Would you like to start a new game? (y/n)"
+      start = gets.chomp
+      if "y" == start
+        return true
+      elsif "n" == start
+        return false
+      else
+        next
+      end
     end
   end
 
