@@ -3,7 +3,7 @@ require_relative 'player.rb'
 require_relative 'board.rb'
 
 class Game
-  attr_accessor :board
+  attr_accessor :board, :current_player, :other_player
   include EndGame
 
   def initialize

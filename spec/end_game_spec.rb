@@ -5,16 +5,16 @@ require_relative '../lib/board.rb'
 
 describe Game do
 
-  # moc up pos_arr (position arrays)
   let(:game) { Game.new }
 
   describe '.get_endgame_combinations' do
     context 'passed board.position_arr' do
       it 'returns Array' do
-        expect(game.get_endgame_combinations(game.board.position_arr).class).to eql(Array)
+        expect(game.get_endgame_combinations(game.board.position_arr).class.to_s).to eql('Array')
       end
     end
   end
+
 
   describe '#victory?' do
 
@@ -99,8 +99,5 @@ describe Game do
     end
 
   end
-
-  # run .draw? on one or two drawing combinations
-
 
 end
