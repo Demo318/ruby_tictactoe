@@ -13,7 +13,9 @@ class Game
 
   def new_players
     @player1 = Player.new
+    @player1.get_player_name
     @player2 = Player.new
+    @player2.get_player_name
     @current_player = @player1
     @other_player = @player2
   end
